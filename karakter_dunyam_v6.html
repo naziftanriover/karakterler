@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Karakter Dünyam ⚔️</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#08060F;--s1:#100D1E;--s2:#171428;--s3:#1F1B34;
+  --bd:rgba(120,80,255,0.16);--bd2:rgba(120,80,255,0.34);
+  --gold:#FFD700;--gg:rgba(255,215,0,0.4);
+  --pur:#8B5CF6;--pur2:#C4B5FD;--pg:rgba(139,92,246,0.35);
+  --tx:#F0EAFF;--tx2:#C4B5FD;--tx3:#6B5F90;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--tx);min-height:100vh;overflow-x:hidden}
+#stars{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0}
+.star{position:absolute;border-radius:50%;background:#fff;animation:tw var(--d) ease-in-out infinite;opacity:0}
+@keyframes tw{0%,100%{opacity:0}50%{opacity:var(--o)}}
+.app{position:relative;z-index:1;display:flex;min-height:100vh}
+
+/* SIDEBAR */
+.sidebar{width:230px;flex-shrink:0;background:#060410;border-right:1px solid var(--bd);position:fixed;top:0;left:0;bottom:0;display:flex;flex-direction:column;overflow-y:auto;z-index:200}
+.sb-top{padding:1.1rem 1rem .8rem;border-bottom:1px solid var(--bd);text-align:center}
+.sb-t{font-family:'Cinzel',serif;font-size:13px;font-weight:700;color:var(--gold);text-shadow:0 0 14px var(--gg);letter-spacing:1px}
+.sb-s{font-size:11px;color:var(--tx3);font-style:italic;margin-top:2px}
+.sb-cb{margin:9px .9rem;background:var(--s2);border:1px solid var(--bd);border-radius:11px;padding:8px;text-align:center}
+.sb-cn{font-family:'Cinzel',serif;font-size:22px;font-weight:700;color:var(--gold);line-height:1}
+.sb-cl{font-size:10px;color:var(--tx3);margin-top:2px}
+.sb-nb{margin:0 .9rem 8px;background:linear-gradient(135deg,var(--pur),#4C1D95);color:#fff;border:none;border-radius:10px;padding:10px;width:calc(100% - 1.8rem);font-family:'Cinzel',serif;font-size:11px;font-weight:600;cursor:pointer;transition:all .2s;box-shadow:0 3px 12px var(--pg)}
+.sb-nb:hover{transform:translateY(-2px);box-shadow:0 5px 18px var(--pg)}
+.sb-list{flex:1;padding:.4rem 0;overflow-y:auto}
+.sb-item{display:flex;align-items:center;gap:7px;padding:8px .9rem;cursor:pointer;color:var(--tx2);font-size:12px;border-left:3px solid transparent;transition:all .15s}
+.sb-item:hover{background:var(--s2);color:var(--tx)}
+.sb-item.act{background:rgba(139,92,246,.13);border-left-color:var(--pur);color:var(--pur2);font-weight:700}
+.sb-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+
+/* MAIN */
+.main{margin-left:230px;flex:1}
+.topbar{background:rgba(8,6,15,.97);border-bottom:1px solid var(--bd);padding:.75rem 1.5rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;backdrop-filter:blur(10px)}
+.tbt{font-family:'Cinzel',serif;font-size:16px;color:var(--tx)}
+.tbs{font-size:11px;color:var(--tx3);font-style:italic;margin-top:1px}
+
+.view{display:none;padding:1.25rem;animation:fi .3s ease}
+.view.act{display:block}
+@keyframes fi{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+
+/* HOME */
+.home-hero{text-align:center;padding:2rem 1rem 1.25rem}
+.hei{font-size:50px;animation:flt 3s ease-in-out infinite}
+@keyframes flt{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.ht{font-family:'Cinzel',serif;font-size:24px;font-weight:700;color:var(--gold);text-shadow:0 0 20px var(--gg);margin:.5rem 0 .25rem}
+.hs{font-size:14px;color:var(--tx2)}
+.srow{display:grid;grid-template-columns:repeat(auto-fit,minmax(105px,1fr));gap:9px;margin:1.1rem 0}
+.sbox{background:var(--s1);border:1px solid var(--bd);border-radius:12px;padding:.8rem;text-align:center;transition:all .2s}
+.sbox:hover{border-color:var(--bd2);box-shadow:0 0 14px var(--pg)}
+.snum{font-family:'Cinzel',serif;font-size:22px;font-weight:700;line-height:1}
+.slbl{font-size:10px;color:var(--tx3);margin-top:3px}
+.cgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:12px}
+.ccard{background:var(--s1);border:1px solid var(--bd);border-radius:14px;padding:.9rem;cursor:pointer;transition:all .2s;text-align:center;overflow:hidden}
+.ccard:hover{transform:translateY(-3px);box-shadow:0 8px 26px rgba(0,0,0,.5)}
+.ccard-vis{height:160px;display:flex;align-items:center;justify-content:center;margin-bottom:8px}
+.ccard-name{font-family:'Cinzel',serif;font-size:12px;font-weight:600;color:var(--tx);margin-bottom:2px}
+.ccard-type{font-size:10px;color:var(--tx3);font-style:italic;margin-bottom:5px}
+.rbadge{display:inline-flex;align-items:center;gap:3px;font-size:10px;font-weight:700;padding:3px 9px;border-radius:20px}
+.empty{text-align:center;padding:3rem 1rem;color:var(--tx3)}
+.empty-i{font-size:44px;margin-bottom:.7rem;opacity:.55}
+.empty-t{font-family:'Cinzel',serif;font-size:15px;color:var(--tx2);margin-bottom:4px}
+
+/* CREATOR */
+.creator{display:grid;grid-template-columns:1fr 330px;gap:1.25rem;align-items:start}
+@media(max-width:900px){.creator{grid-template-columns:1fr}}
+
+/* STAGE */
+.stage{background:var(--s1);border:1px solid var(--bd);border-radius:16px;padding:1.25rem;display:flex;flex-direction:column;align-items:center}
+.stage-t{font-family:'Cinzel',serif;font-size:11px;color:var(--tx3);letter-spacing:.8px;text-transform:uppercase;margin-bottom:.8rem}
+#charCanvas{cursor:grab;display:block;border-radius:14px;background:radial-gradient(ellipse at 50% 60%,#1E1040 0%,#0C0820 55%,#060310 100%);box-shadow:0 0 40px rgba(80,30,200,0.15)}
+.rot-row{display:flex;align-items:center;gap:10px;margin:.7rem 0}
+.rbtn{width:40px;height:40px;border-radius:50%;background:var(--s2);border:1px solid var(--bd2);color:var(--tx2);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s;user-select:none}
+.rbtn:hover{background:var(--s3);color:var(--tx);transform:scale(1.07)}
+.rind{flex:1;text-align:center;font-size:11px;color:var(--tx3);font-family:'Cinzel',serif;letter-spacing:.5px}
+.abtn{padding:5px 12px;border-radius:20px;border:1px solid var(--bd2);background:var(--s2);color:var(--tx2);font-size:11px;cursor:pointer;transition:all .15s}
+.abtn.on{background:rgba(139,92,246,.2);border-color:var(--pur);color:var(--pur2)}
+.eq-list{width:100%;margin-top:.6rem;display:flex;flex-wrap:wrap;gap:5px}
+.eq-chip{display:inline-flex;align-items:center;gap:5px;background:var(--s2);border:1px solid var(--bd);border-radius:20px;padding:4px 10px;font-size:11px;color:var(--tx2)}
+.eq-del{background:none;border:none;color:var(--tx3);cursor:pointer;font-size:11px;padding:0 0 0 3px;transition:color .13s}
+.eq-del:hover{color:#FB7185}
+
+/* SEL PANEL */
+.sel-panel{background:var(--s1);border:1px solid var(--bd);border-radius:16px;overflow:hidden;position:sticky;top:72px}
+.sel-tabs{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--bd)}
+.stab{padding:9px 3px;text-align:center;cursor:pointer;font-size:15px;color:var(--tx3);transition:all .15s;border-bottom:2px solid transparent;display:flex;flex-direction:column;align-items:center;gap:2px}
+.stab:hover{background:var(--s2);color:var(--tx)}
+.stab.act{background:rgba(139,92,246,.14);color:var(--pur2);border-bottom-color:var(--pur)}
+.stab-l{font-size:8px;font-family:'Cinzel',serif;letter-spacing:.2px;color:inherit}
+.sel-body{padding:.8rem;max-height:560px;overflow-y:auto}
+.sel-sec{font-size:9px;color:var(--tx3);font-family:'Cinzel',serif;letter-spacing:.7px;text-transform:uppercase;margin:10px 0 7px;padding-top:8px;border-top:1px solid var(--bd)}
+.sel-sec:first-child{margin-top:0;padding-top:0;border:none}
+.item-cards{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:6px}
+.item-card{background:var(--s2);border:2px solid var(--bd);border-radius:12px;padding:10px 6px 8px;cursor:pointer;text-align:center;transition:all .18s;display:flex;flex-direction:column;align-items:center;gap:5px}
+.item-card:hover{border-color:var(--bd2);background:var(--s3);transform:scale(1.03)}
+.item-card.sel{border-color:var(--gold);background:rgba(255,215,0,.07);box-shadow:0 0 12px rgba(255,215,0,.22)}
+.item-card-icon{font-size:30px;line-height:1}
+.item-card-name{font-size:10px;color:var(--tx2);font-weight:600}
+.item-card-desc{font-size:9px;color:var(--tx3);font-style:italic}
+.igrid3{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;margin-bottom:5px}
+.ibtn{background:var(--s2);border:1.5px solid var(--bd);border-radius:9px;padding:7px 3px;cursor:pointer;text-align:center;transition:all .15s;display:flex;flex-direction:column;align-items:center;gap:3px}
+.ibtn:hover{border-color:var(--bd2);background:var(--s3);transform:scale(1.03)}
+.ibtn.sel{border-color:var(--gold);background:rgba(255,215,0,.07)}
+.ibtn-em{font-size:20px;line-height:1}
+.ibtn-nm{font-size:9px;color:var(--tx3);line-height:1.2;text-align:center}
+.cgrid-c{display:grid;grid-template-columns:repeat(8,1fr);gap:4px;margin-bottom:6px}
+.cbtn{aspect-ratio:1;border-radius:50%;cursor:pointer;border:2px solid transparent;transition:all .15s}
+.cbtn:hover{transform:scale(1.2)}
+.cbtn.sel{border-color:#fff;box-shadow:0 0 7px rgba(255,255,255,.4)}
+
+/* INFO FORM */
+.info-box{background:var(--s1);border:1px solid var(--bd);border-radius:15px;padding:1.1rem;margin-top:.9rem}
+.ibt{font-family:'Cinzel',serif;font-size:11px;color:var(--tx3);letter-spacing:.8px;text-transform:uppercase;margin-bottom:.9rem}
+.finput,.fsel,.fta{background:var(--s2);border:1px solid var(--bd);border-radius:9px;padding:8px 11px;font-family:'Nunito',sans-serif;font-size:13px;color:var(--tx);outline:none;transition:border-color .2s;width:100%}
+.fsel{font-size:12px;color:var(--tx2);cursor:pointer}
+.fta{resize:vertical;min-height:65px;line-height:1.55}
+.finput:focus,.fta:focus{border-color:var(--pur);box-shadow:0 0 0 2px rgba(139,92,246,.13)}
+.flbl{font-size:10px;color:var(--tx3);font-weight:700;letter-spacing:.3px;text-transform:uppercase;margin-bottom:4px;display:block}
+.fgrp{margin-bottom:9px}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:9px}
+.pl{display:flex;flex-direction:column;gap:5px}
+.pi{display:flex;gap:5px;align-items:center}
+.pin{flex:1;background:var(--s2);border:1px solid var(--bd);border-radius:8px;padding:7px 10px;font-family:'Nunito',sans-serif;font-size:12px;color:var(--tx);outline:none}
+.pin:focus{border-color:var(--pur)}
+.pdl{width:26px;height:26px;border-radius:7px;background:rgba(251,113,133,.1);border:1px solid rgba(251,113,133,.22);color:#FB7185;cursor:pointer;font-size:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.apl{background:rgba(139,92,246,.08);border:1px dashed var(--bd2);border-radius:8px;padding:6px;color:var(--pur2);font-size:11px;cursor:pointer;text-align:center;width:100%;font-family:'Nunito',sans-serif}
+.apl:hover{background:rgba(139,92,246,.18)}
+.ssr{display:flex;align-items:center;gap:7px;margin-bottom:6px}
+.ssl{font-size:10px;color:var(--tx2);min-width:60px;font-weight:700}
+.ssi{flex:1;accent-color:var(--pur)}
+.ssv{font-size:11px;font-weight:700;color:var(--tx);min-width:22px;text-align:right}
+.btn-p{background:linear-gradient(135deg,var(--pur),#4C1D95);color:#fff;border:none;border-radius:10px;padding:10px 22px;font-family:'Cinzel',serif;font-size:12px;font-weight:600;cursor:pointer;transition:all .2s;box-shadow:0 3px 12px var(--pg)}
+.btn-p:hover{transform:translateY(-2px);box-shadow:0 5px 20px var(--pg)}
+.btn-s{background:var(--s2);border:1px solid var(--bd2);color:var(--tx2);border-radius:10px;padding:9px 16px;font-family:'Cinzel',serif;font-size:11px;cursor:pointer;transition:all .2s}
+.btn-s:hover{background:var(--s3);color:var(--tx)}
+.btn-d{background:rgba(251,113,133,.09);border:1px solid rgba(251,113,133,.22);color:#FB7185;border-radius:10px;padding:8px 14px;font-size:12px;cursor:pointer;font-family:'Nunito',sans-serif}
+.btn-d:hover{background:rgba(251,113,133,.18)}
+.brow{display:flex;gap:7px;flex-wrap:wrap;margin-top:1.1rem}
+
+/* DETAIL */
+.det-wrap{max-width:760px}
+.det-head{background:var(--s1);border:1px solid var(--bd);border-radius:16px;padding:1.5rem;margin-bottom:.9rem;position:relative;overflow:hidden}
+.det-line{position:absolute;top:0;left:0;right:0;height:3px;border-radius:16px 16px 0 0}
+.det-grid{display:grid;grid-template-columns:200px 1fr;gap:1.25rem;align-items:start}
+.det-name{font-family:'Cinzel',serif;font-size:22px;font-weight:700;color:var(--gold);text-shadow:0 0 16px var(--gg);margin-bottom:4px}
+.det-type{font-size:13px;color:var(--tx2);font-style:italic;margin-bottom:9px}
+.det-badges{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px}
+.det-badge{display:inline-flex;align-items:center;gap:3px;font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px}
+.det-sec{background:var(--s1);border:1px solid var(--bd);border-radius:13px;padding:.9rem;margin-bottom:.75rem}
+.det-sec-t{font-family:'Cinzel',serif;font-size:10px;color:var(--pur2);letter-spacing:.9px;text-transform:uppercase;margin-bottom:8px}
+.det-txt{font-size:13.5px;color:var(--tx2);line-height:1.7}
+.ptag{display:inline-flex;align-items:center;gap:4px;background:rgba(139,92,246,.1);border:1px solid rgba(139,92,246,.22);border-radius:20px;padding:3px 10px;font-size:11px;color:var(--pur2);margin:2px 2px 0 0}
+.wtag{background:rgba(251,113,133,.08);border:1px solid rgba(251,113,133,.18);border-radius:20px;padding:3px 10px;font-size:11px;color:#FCA5A5;display:inline-block;margin:2px 2px 0 0}
+.sbr{display:flex;align-items:center;gap:7px;margin-bottom:6px}
+.sbl{font-size:11px;color:var(--tx2);min-width:68px;font-weight:600}
+.sbbg{flex:1;background:var(--s2);border-radius:20px;height:6px;overflow:hidden}
+.sbf{height:6px;border-radius:20px}
+
+/* RARITY */
+.r-c{color:#BDC3C7}.r-n{color:#34D399}.r-e{color:#60A5FA}.r-ep{color:#C084FC}.r-ef{color:#FFD700}.r-t{color:#FB7185}
+.bg-c{background:rgba(189,195,199,.09);border-color:rgba(189,195,199,.2)}
+.bg-n{background:rgba(52,211,153,.09);border-color:rgba(52,211,153,.2)}
+.bg-e{background:rgba(96,165,250,.09);border-color:rgba(96,165,250,.2)}
+.bg-ep{background:rgba(192,132,252,.09);border-color:rgba(192,132,252,.2)}
+.bg-ef{background:rgba(255,215,0,.09);border-color:rgba(255,215,0,.2)}
+.bg-t{background:rgba(251,113,133,.09);border-color:rgba(251,113,133,.2)}
+.dot-c{background:#BDC3C7}.dot-n{background:#34D399}.dot-e{background:#60A5FA}.dot-ep{background:#C084FC}.dot-ef{background:#FFD700}.dot-t{background:#FB7185}
+.line-c{background:#BDC3C7}.line-n{background:#34D399}.line-e{background:#60A5FA}.line-ep{background:#C084FC}.line-ef{background:linear-gradient(90deg,#FFD700,#FFA500)}.line-t{background:linear-gradient(90deg,#FB7185,#C084FC)}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--s1)}::-webkit-scrollbar-thumb{background:var(--s3);border-radius:10px}
+</style>
+</head>
+<body>
+<div id="stars"></div>
+<div class="app">
+
+<aside class="sidebar">
+  <div class="sb-top"><div class="sb-t">⚔️ KARAKTERLERİM</div><div class="sb-s">Fantezi Dünyam</div></div>
+  <div class="sb-cb"><div class="sb-cn" id="totalN">0</div><div class="sb-cl">karakter</div></div>
+  <button class="sb-nb" onclick="gotoNew()">✨ Yeni Karakter Yarat</button>
+  <div class="sb-list" id="sbList"></div>
+</aside>
+
+<main class="main">
+  <div class="topbar">
+    <div><div class="tbt" id="tbT">Karakter Dünyam</div><div class="tbs" id="tbS">Tüm karakterlerin burada</div></div>
+    <div style="display:flex;gap:6px">
+      <button onclick="importK()" style="background:rgba(139,92,246,.1);border:1px solid rgba(139,92,246,.25);color:#C4B5FD;border-radius:9px;padding:6px 12px;font-size:11px;cursor:pointer;font-family:'Nunito',sans-serif">📂 Yükle</button>
+      <button onclick="exportK()" style="background:rgba(139,92,246,.1);border:1px solid rgba(139,92,246,.25);color:#C4B5FD;border-radius:9px;padding:6px 12px;font-size:11px;cursor:pointer;font-family:'Nunito',sans-serif">💾 Yedekle</button>
+    </div>
+  </div>
+
+  <div id="vHome" class="view act">
+    <div class="home-hero"><div class="hei">🌟</div><div class="ht">Karakter Dünyam</div><div class="hs">Her kahraman, her büyücü, her efsane burada</div></div>
+    <div class="srow">
+      <div class="sbox"><div class="snum" id="sT" style="color:var(--gold)">0</div><div class="slbl">Toplam</div></div>
+      <div class="sbox"><div class="snum" id="sEf" style="color:var(--gold)">0</div><div class="slbl">Efsanevi</div></div>
+      <div class="sbox"><div class="snum" id="sTn" style="color:#FB7185">0</div><div class="slbl">Tanrısal</div></div>
+      <div class="sbox"><div class="snum" id="sEp" style="color:var(--pur2)">0</div><div class="slbl">Epik</div></div>
+    </div>
+    <div style="font-family:'Cinzel',serif;font-size:10px;color:var(--tx3);letter-spacing:.8px;text-transform:uppercase;margin-bottom:9px">Son Eklenenler</div>
+    <div class="cgrid" id="homeGrid"></div>
+  </div>
+
+  <div id="vAll" class="view">
+    <div style="display:flex;gap:9px;margin-bottom:1.1rem">
+      <input id="searchQ" class="finput" placeholder="🔍 Ara..." oninput="renderAll()" style="flex:1">
+      <select id="filterR" class="fsel" onchange="renderAll()" style="width:140px">
+        <option value="">Tümü</option><option>Yaygın</option><option>Nadir</option><option>Ender</option><option>Epik</option><option>Efsanevi</option><option>Tanrısal</option>
+      </select>
+    </div>
+    <div class="cgrid" id="allGrid"></div>
+  </div>
+
+  <div id="vNew" class="view">
+    <div class="creator">
+      <div>
+        <div class="stage">
+          <div class="stage-t">✨ Sürükle & Döndür</div>
+          <canvas id="charCanvas" width="260" height="400"></canvas>
+          <div class="rot-row">
+            <button class="rbtn" onclick="rotate(-45)">◀</button>
+            <div class="rind" id="rind">ÖN</div>
+            <button class="rbtn" onclick="rotate(45)">▶</button>
+            <button class="abtn" id="abtn" onclick="toggleAuto()">🔄 Oto</button>
+          </div>
+          <div class="eq-list" id="eqList"></div>
+        </div>
+        <div class="info-box">
+          <div class="ibt">📜 Karakter Bilgileri</div>
+          <div class="frow">
+            <div><label class="flbl">Adı *</label><input class="finput" id="fName" placeholder="Karakter adı..."></div>
+            <div><label class="flbl">Türü</label><input class="finput" id="fType" placeholder="Savaşçı..."></div>
+          </div>
+          <div class="frow">
+            <div><label class="flbl">Nadirlik</label><select class="fsel" id="fRarity"><option>Yaygın</option><option>Nadir</option><option>Ender</option><option selected>Epik</option><option>Efsanevi</option><option>Tanrısal</option></select></div>
+            <div><label class="flbl">Taraf</label><select class="fsel" id="fSide"><option>Kahraman</option><option>Koruyucu</option><option>Gezgin</option><option>Gizemli</option></select></div>
+          </div>
+          <div class="fgrp"><label class="flbl">Hikayesi</label><textarea class="fta" id="fStory" placeholder="Nerede doğdu..."></textarea></div>
+          <div class="fgrp"><label class="flbl">⚡ Güçler</label><div class="pl" id="powList"></div><button class="apl" onclick="addPow('powList')">+ Güç Ekle</button></div>
+          <div class="fgrp"><label class="flbl">💔 Zayıflıklar</label><div class="pl" id="weakList"></div><button class="apl" onclick="addPow('weakList')">+ Ekle</button></div>
+          <div class="fgrp"><label class="flbl" style="margin-bottom:7px">📊 İstatistikler</label><div id="statSl"></div></div>
+          <div class="fgrp"><label class="flbl">💭 Notlar</label><textarea class="fta" id="fNotes" placeholder="Sırlar..."></textarea></div>
+          <div class="brow"><button class="btn-p" onclick="saveChar()">✨ Kaydet</button><button class="btn-s" onclick="gotoHome()">← Geri</button></div>
+        </div>
+      </div>
+      <div class="sel-panel">
+        <div class="sel-tabs">
+          <div class="stab act" onclick="selTab(0,this)">👤<span class="stab-l">Vücut</span></div>
+          <div class="stab" onclick="selTab(1,this)">🛡️<span class="stab-l">Zırh</span></div>
+          <div class="stab" onclick="selTab(2,this)">⚔️<span class="stab-l">Silah</span></div>
+          <div class="stab" onclick="selTab(3,this)">💎<span class="stab-l">Ekstra</span></div>
+        </div>
+        <div class="sel-body" id="selBody"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="vDetail" class="view"><div class="det-wrap" id="detC"></div></div>
+</main>
+</div>
+
+<script>
+// STARS
+const SE=document.getElementById('stars');
+for(let i=0;i<100;i++){const s=document.createElement('div');s.className='star';s.style.cssText=`left:${Math.random()*100}%;top:${Math.random()*100}%;width:${1+Math.random()*2}px;height:${1+Math.random()*2}px;--d:${2+Math.random()*5}s;--o:${.3+Math.random()*.7};animation-delay:${Math.random()*6}s`;SE.appendChild(s);}
+
+// ── CATALOG ──
+const CINS=[
+  {id:'human',n:'İnsan',s:'#D4956A'},{id:'elf',n:'Elf',s:'#C8E8D0'},
+  {id:'mage',n:'Büyücü',s:'#C0B0E0'},{id:'warrior',n:'Savaşçı',s:'#C87040'},
+  {id:'ranger',n:'Ok Avcısı',s:'#A0825A'},{id:'paladin',n:'Şövalye',s:'#E8D0B0'},
+  {id:'druid',n:'Druid',s:'#A8C878'},{id:'titan',n:'Titan',s:'#788090'},
+  {id:'rogue',n:'Rogue',s:'#906050'},{id:'cleric',n:'Kahin',s:'#D8D0F0'},
+];
+const TEN=['#FFE0C0','#F4C2A1','#D4956A','#A0722A','#7B4F2A','#3C2010','#C0D8F0','#B0E0C0','#F0C0D8','#D0D0D0','#909090','#504060'];
+const SAC=['#101010','#3A2510','#7A5A10','#C8A020','#E04010','#E01080','#7040C0','#2060C0','#10A070','#FFFFFF','#707070','#C05020'];
+const GOZ=['#101010','#1040A0','#106040','#701010','#A03010','#A07000','#6020A0','#C01010','#008080','#C01060','#505060','#E8E8F0'];
+
+const ARMORS={
+  baslik:[
+    {id:'none',n:'Yok',em:'✖️'},{id:'crown_gold',n:'Altın Taç',em:'👑',c:'#D97706'},
+    {id:'helm_knight',n:'Şövalye Kaskı',em:'⛑️',c:'#4B5563'},{id:'helm_full',n:'Savaş Kaskı',em:'🪖',c:'#374151'},
+    {id:'crown_moon',n:'Ay Tacı',em:'🌙',c:'#4338CA'},{id:'crown_star',n:'Yıldız Tacı',em:'⭐',c:'#CA8A04'},
+    {id:'hood_mage',n:'Büyücü Başlığı',em:'🎓',c:'#4C1D95'},{id:'helm_fire',n:'Alev Kaskı',em:'🔥',c:'#DC2626'},
+    {id:'helm_ice',n:'Buz Kaskı',em:'❄️',c:'#0EA5E9'},{id:'helm_thunder',n:'Şimşek Kaskı',em:'⚡',c:'#CA8A04'},
+    {id:'crown_light',n:'Işık Tacı',em:'✨',c:'#FFFBEB'},{id:'crown_nature',n:'Doğa Tacı',em:'🌿',c:'#15803D'},
+    {id:'helm_dragon',n:'Ejder Kaskı',em:'🐉',c:'#15803D'},{id:'crown_sun',n:'Güneş Tacı',em:'☀️',c:'#D97706'},
+    {id:'crown_crystal',n:'Kristal Taç',em:'💎',c:'#A5F3FC'},
+  ],
+  ust:[
+    {id:'none',n:'Yok',em:'✖️'},{id:'plate',n:'Plaka Zırhı',em:'🛡️',c:'#6B7280'},
+    {id:'chain',n:'Zincir Zırh',em:'⚔️',c:'#9CA3AF'},{id:'leather',n:'Deri Zırh',em:'🥋',c:'#92400E'},
+    {id:'robe_mage',n:'Büyücü Cübbesi',em:'🧙',c:'#5B21B6'},{id:'plate_fire',n:'Alev Zırhı',em:'🔥',c:'#DC2626'},
+    {id:'plate_ice',n:'Buz Zırhı',em:'❄️',c:'#0EA5E9'},{id:'plate_gold',n:'Altın Zırh',em:'🌟',c:'#D97706'},
+    {id:'robe_divine',n:'Kutsal Cübbe',em:'☀️',c:'#FFFBEB'},{id:'plate_nature',n:'Orman Zırhı',em:'🌿',c:'#15803D'},
+    {id:'plate_thunder',n:'Şimşek Zırhı',em:'⚡',c:'#CA8A04'},{id:'robe_arcane',n:'Büyü Cübbesi',em:'🔮',c:'#4C1D95'},
+    {id:'plate_crystal',n:'Kristal Zırh',em:'💎',c:'#A5F3FC'},{id:'plate_dragon',n:'Ejder Zırhı',em:'🐉',c:'#DC2626'},
+    {id:'plate_sun',n:'Güneş Zırhı',em:'☀️',c:'#D97706'},{id:'plate_ocean',n:'Okyanus Zırhı',em:'🌊',c:'#0C4A6E'},
+  ],
+  alt:[
+    {id:'none',n:'Yok',em:'✖️'},{id:'plate_legs',n:'Zırh Pantolon',em:'🦵',c:'#6B7280'},
+    {id:'leather_legs',n:'Deri Pantolon',em:'👖',c:'#92400E'},{id:'boots_knight',n:'Şövalye Botu',em:'👢',c:'#374151'},
+    {id:'boots_fire',n:'Alev Botu',em:'🔥',c:'#DC2626'},{id:'boots_ice',n:'Buz Botu',em:'❄️',c:'#0EA5E9'},
+    {id:'boots_speed',n:'Hız Botu',em:'💨',c:'#10B981'},{id:'plate_gold_l',n:'Altın Pantolon',em:'🌟',c:'#D97706'},
+    {id:'boots_divine',n:'Kutsal Bot',em:'✨',c:'#FEF3C7'},{id:'boots_nature',n:'Orman Botu',em:'🌿',c:'#15803D'},
+  ],
+};
+
+const WEAPONS={
+  sag:[
+    {id:'sw_iron',n:'Demir Kılıç',em:'⚔️',d:'Güvenilir güç',c:'#9CA3AF'},
+    {id:'sw_fire',n:'Alev Kılıcı',em:'🔥',d:'Ateşle parlar',c:'#EF4444'},
+    {id:'sw_ice',n:'Buz Kılıcı',em:'❄️',d:'Her şeyi dondurur',c:'#60A5FA'},
+    {id:'sw_light',n:'Işık Kılıcı',em:'✨',d:'Kutsanmış güç',c:'#FEF9C3'},
+    {id:'sw_thunder',n:'Şimşek Kılıcı',em:'⚡',d:'Yıldırım gücü',c:'#FDE047'},
+    {id:'sw_gold',n:'Altın Kılıç',em:'🌟',d:'Efsanevi değer',c:'#FFD700'},
+    {id:'sw_nature',n:'Orman Kılıcı',em:'🌿',d:'Doğanın ruhu',c:'#15803D'},
+    {id:'sw_ocean',n:'Okyanus Kılıcı',em:'🌊',d:'Dalga kesen',c:'#0EA5E9'},
+    {id:'sw_dragon',n:'Ejder Kılıcı',em:'🐉',d:'Ejder ateşi',c:'#DC2626'},
+    {id:'sw_crystal',n:'Kristal Kılıç',em:'💎',d:'Saf enerji',c:'#A5F3FC'},
+    {id:'sw_moon',n:'Ay Kılıcı',em:'🌙',d:'Gece gücü',c:'#818CF8'},
+    {id:'greatsword',n:'Dev Kılıç',em:'⚔️',d:'İki elli kılıç',c:'#6B7280'},
+    {id:'axe',n:'Savaş Baltası',em:'🪓',d:'Ağır darbeler',c:'#78350F'},
+    {id:'hammer',n:'Savaş Çekici',em:'🔨',d:'Ezici güç',c:'#374151'},
+    {id:'spear',n:'Mızrak',em:'🔱',d:'Uzak mesafe',c:'#9CA3AF'},
+    {id:'bow',n:'Yay',em:'🏹',d:'Sessiz ölüm',c:'#A16207'},
+    {id:'staff_fire',n:'Alev Asası',em:'🔥',d:'Ateş büyüleri',c:'#EF4444'},
+    {id:'staff_arcane',n:'Büyü Asası',em:'🪄',d:'Saf büyü',c:'#8B5CF6'},
+    {id:'staff_ice',n:'Buz Asası',em:'❄️',d:'Buz büyüleri',c:'#60A5FA'},
+    {id:'dagger',n:'Hançer',em:'🗡️',d:'Hızlı ve sessiz',c:'#374151'},
+  ],
+  sol:[
+    {id:'none',n:'Yok',em:'✖️',d:'',c:'#374151'},
+    {id:'sh_iron',n:'Demir Kalkan',em:'🛡️',d:'Sağlam koruma',c:'#6B7280'},
+    {id:'sh_fire',n:'Alev Kalkanı',em:'🔥',d:'Ateşe bağışık',c:'#EF4444'},
+    {id:'sh_ice',n:'Buz Kalkanı',em:'❄️',d:'Soğuk zırh',c:'#60A5FA'},
+    {id:'sh_light',n:'Işık Kalkanı',em:'✨',d:'Kutsanmış',c:'#FEF9C3'},
+    {id:'sh_gold',n:'Altın Kalkan',em:'🌟',d:'Efsanevi',c:'#FFD700'},
+    {id:'sh_thunder',n:'Şimşek Kalkanı',em:'⚡',d:'Elektrik yansıtır',c:'#FDE047'},
+    {id:'sh_nature',n:'Orman Kalkanı',em:'🌿',d:'Doğa koruması',c:'#15803D'},
+    {id:'sh_crystal',n:'Kristal Kalkan',em:'💎',d:'Büyüleri kırar',c:'#A5F3FC'},
+    {id:'tome',n:'Büyü Kitabı',em:'📖',d:'Bilgi gücü',c:'#4C1D95'},
+    {id:'orb',n:'Büyü Küresi',em:'🔮',d:'Kehanet gücü',c:'#7C3AED'},
+    {id:'dagger2',n:'İkinci Hançer',em:'🗡️',d:'Çift hançer',c:'#374151'},
+  ],
+};
+
+const EXTRAS={
+  kanat:[
+    {id:'none',n:'Yok',em:'✖️'},{id:'eagle',n:'Kartal',em:'🦅',c:'#78350F'},
+    {id:'butterfly',n:'Kelebek',em:'🦋',c:'#DB2777'},{id:'angel',n:'Melek',em:'😇',c:'#FFFBEB'},
+    {id:'fire',n:'Alev',em:'🔥',c:'#EF4444'},{id:'ice',n:'Buz',em:'❄️',c:'#60A5FA'},
+    {id:'rainbow',n:'Gökkuşağı',em:'🌈',c:'#C084FC'},{id:'light',n:'Işık',em:'✨',c:'#FEF9C3'},
+    {id:'thunder',n:'Şimşek',em:'⚡',c:'#FDE047'},{id:'dragon',n:'Ejder',em:'🐉',c:'#DC2626'},
+    {id:'moon',n:'Ay',em:'🌙',c:'#818CF8'},{id:'sun',n:'Güneş',em:'☀️',c:'#F59E0B'},
+  ],
+  aksesuar:[
+    {id:'none',n:'Yok',em:'✖️'},{id:'crystal',n:'Kristal Kolye',em:'💎',c:'#A5F3FC'},
+    {id:'fire_neck',n:'Alev Kolyesi',em:'🔥',c:'#EF4444'},{id:'moon_neck',n:'Ay Kolyesi',em:'🌙',c:'#818CF8'},
+    {id:'star_neck',n:'Yıldız Kolyesi',em:'⭐',c:'#FCD34D'},{id:'gold_ring',n:'Altın Yüzük',em:'💍',c:'#FFD700'},
+    {id:'sun_am',n:'Güneş Muskası',em:'☀️',c:'#F59E0B'},{id:'eye_am',n:'Göz Tılsımı',em:'👁️',c:'#1D4ED8'},
+    {id:'thunder_gem',n:'Şimşek Taşı',em:'⚡',c:'#CA8A04'},{id:'nature_neck',n:'Doğa Kolyesi',em:'🌿',c:'#15803D'},
+  ],
+  aura:[
+    {id:'none',n:'Yok',em:'✖️'},{id:'fire',n:'Alev',em:'🔥',c:'#EF4444'},
+    {id:'ice',n:'Buz',em:'❄️',c:'#60A5FA'},{id:'thunder',n:'Yıldırım',em:'⚡',c:'#FDE047'},
+    {id:'light',n:'Işık',em:'✨',c:'#FEF9C3'},{id:'nature',n:'Doğa',em:'🌿',c:'#34D399'},
+    {id:'ocean',n:'Su',em:'🌊',c:'#60A5FA'},{id:'rainbow',n:'Gökkuşağı',em:'🌈',c:'#C084FC'},
+    {id:'sun',n:'Güneş',em:'☀️',c:'#F59E0B'},{id:'moon',n:'Ay',em:'🌙',c:'#818CF8'},
+    {id:'star',n:'Yıldız',em:'⭐',c:'#FCD34D'},{id:'dragon',n:'Ejder',em:'🐉',c:'#DC2626'},
+  ],
+};
+
+const AURA_GLOW={fire:'rgba(239,68,68,.3)',ice:'rgba(96,165,250,.28)',thunder:'rgba(253,224,71,.28)',light:'rgba(255,255,255,.2)',nature:'rgba(52,211,153,.25)',ocean:'rgba(96,165,250,.25)',rainbow:'rgba(192,132,252,.25)',sun:'rgba(245,158,11,.3)',moon:'rgba(129,140,248,.25)',star:'rgba(252,211,77,.28)',dragon:'rgba(220,38,38,.28)',shadow:'rgba(30,20,80,.35)'};
+
+const STAT_DEFS=[{id:'str',label:'⚔️ Güç',c:'#EF4444'},{id:'spd',label:'💨 Hız',c:'#60A5FA'},{id:'int',label:'🧠 Zeka',c:'#C084FC'},{id:'def',label:'🛡️ Savunma',c:'#34D399'},{id:'ene',label:'✨ Enerji',c:'#FCD34D'}];
+const RC={Yaygın:'c',Nadir:'n',Ender:'e',Epik:'ep',Efsanevi:'ef',Tanrısal:'t'};
+const RCOL={c:'#BDC3C7',n:'#34D399',e:'#60A5FA',ep:'#C084FC',ef:'#FFD700',t:'#FB7185'};
+
+function ic(catalog,id){
+  const all=[...ARMORS.baslik,...ARMORS.ust,...ARMORS.alt,...WEAPONS.sag,...WEAPONS.sol,...EXTRAS.kanat,...EXTRAS.aksesuar,...EXTRAS.aura];
+  return all.find(i=>i.id===id)?.c||'#6B7280';
+}
+
+// ── STATE ──
+let outfit={cins:'human',ten:'#D4956A',sac:'#1C1C1C',goz:'#1040A0',baslik:'none',ust:'none',alt:'none',sag:'sw_iron',sol:'sh_iron',kanat:'none',aksesuar:'none',aura:'none'};
+let chars=JSON.parse(localStorage.getItem('kd_v6')||'[]');
+let editId=null,curTab=0,rotAngle=0,autoRot=false,autoTmr=null,isDrag=false,dsx=0,dsa=0,breathT=0;
+
+// CANVAS
+const canvas=document.getElementById('charCanvas');
+const ctx=canvas.getContext('2d');
+canvas.addEventListener('mousedown',e=>{isDrag=true;dsx=e.clientX;dsa=rotAngle;canvas.style.cursor='grabbing'});
+canvas.addEventListener('mousemove',e=>{if(!isDrag)return;rotAngle=((dsa+(e.clientX-dsx)*0.4)%360+360)%360;updRot();});
+canvas.addEventListener('mouseup',()=>{isDrag=false;canvas.style.cursor='grab'});
+canvas.addEventListener('mouseleave',()=>{isDrag=false;canvas.style.cursor='grab'});
+canvas.addEventListener('touchstart',e=>{isDrag=true;dsx=e.touches[0].clientX;dsa=rotAngle},{passive:true});
+canvas.addEventListener('touchmove',e=>{if(!isDrag)return;rotAngle=((dsa+(e.touches[0].clientX-dsx)*0.4)%360+360)%360;updRot();},{passive:true});
+canvas.addEventListener('touchend',()=>{isDrag=false});
+
+function rotate(d){rotAngle=((rotAngle+d)%360+360)%360;updRot();}
+function updRot(){const d=['ÖN','SAĞ-ÖN','SAĞ','SAĞ-ARKA','ARKA','SOL-ARKA','SOL','SOL-ÖN'];document.getElementById('rind').textContent=d[Math.floor(((rotAngle+22)%360)/45)];}
+function toggleAuto(){autoRot=!autoRot;document.getElementById('abtn').classList.toggle('on',autoRot);if(autoRot)autoTmr=setInterval(()=>{rotAngle=(rotAngle+0.8)%360;updRot();},20);else clearInterval(autoTmr);}
+
+// ── ANIMATION LOOP ──
+(function loop(){breathT+=0.035;drawChar();requestAnimationFrame(loop);})();
+
+// ══ DRAW CHARACTER ══
+function drawChar(){
+  const W=260,H=400;
+  ctx.clearRect(0,0,W,H);
+
+  const rad=rotAngle*Math.PI/180;
+  const scX=Math.abs(Math.cos(rad));   // 1=front/back, 0=side
+  const flip=Math.cos(rad)<0;          // true=back
+  const isFront=scX>0.6&&!flip;
+  const isBack=scX>0.6&&flip;
+  const breath=Math.sin(breathT)*2;    // gentle breathing
+
+  const cx=W/2;
+
+  // ── AURA ──
+  if(outfit.aura&&outfit.aura!=='none'){
+    const ag=AURA_GLOW[outfit.aura]||'rgba(139,92,246,.2)';
+    // Outer glow
+    const gr=ctx.createRadialGradient(cx,H*.5,15,cx,H*.5,135);
+    gr.addColorStop(0,ag);gr.addColorStop(1,'transparent');
+    ctx.fillStyle=gr;ctx.fillRect(0,0,W,H);
+    // Animated particles
+    for(let i=0;i<5;i++){
+      const px=cx+Math.sin(breathT*1.3+i*1.26)*48*scX;
+      const py=H*.5+Math.cos(breathT+i*1.26)*55;
+      ctx.save();ctx.globalAlpha=0.12+Math.sin(breathT+i)*0.06;
+      ctx.fillStyle=ag;ctx.beginPath();ctx.arc(px,py,2.5,0,Math.PI*2);ctx.fill();ctx.restore();
+    }
+  }
+
+  // ── GROUND GLOW ──
+  const gg=ctx.createRadialGradient(cx,H-22,2,cx,H-22,50*Math.max(scX,.1));
+  gg.addColorStop(0,'rgba(80,40,200,.22)');gg.addColorStop(1,'transparent');
+  ctx.fillStyle=gg;ctx.beginPath();ctx.ellipse(cx,H-22,50*Math.max(scX,.1),10,0,0,Math.PI*2);ctx.fill();
+
+  const skin=outfit.ten;
+
+  // ── WINGS (behind body) ──
+  if(outfit.kanat&&outfit.kanat!=='none') drawWings(cx,H-280+breath,scX,true);
+
+  // ═══════════════════════════════════
+  // FEET & BOOTS
+  // ═══════════════════════════════════
+  const bC=outfit.alt&&outfit.alt!=='none'?ic(null,outfit.alt):skin;
+  const bD=dk(bC,20);
+
+  // Left foot
+  ctx.fillStyle=bC;
+  ctx.beginPath();
+  ctx.ellipse(cx-22*scX,H-42+breath,18*scX,11,0,0,Math.PI*2);ctx.fill();
+  ctx.fillStyle=bD;
+  ctx.beginPath();
+  ctx.ellipse(cx-28*scX,H-40+breath,10*scX,7,-0.3,0,Math.PI*2);ctx.fill();
+
+  // Right foot
+  ctx.fillStyle=bC;
+  ctx.beginPath();
+  ctx.ellipse(cx+22*scX,H-42+breath,18*scX,11,0,0,Math.PI*2);ctx.fill();
+  ctx.fillStyle=bD;
+  ctx.beginPath();
+  ctx.ellipse(cx+28*scX,H-40+breath,10*scX,7,0.3,0,Math.PI*2);ctx.fill();
+
+  // ═══════════════════════════════════
+  // LOWER LEGS (calves)
+  // ═══════════════════════════════════
+  const lC=outfit.alt&&outfit.alt!=='none'?lt(ic(null,outfit.alt),8):skin;
+  ctx.fillStyle=lC;
+  // left calf
+  ctx.beginPath();
+  ctx.moveTo(cx-34*scX,H-120+breath);
+  ctx.quadraticCurveTo(cx-38*scX,H-80+breath,cx-22*scX,H-50+breath);
+  ctx.quadraticCurveTo(cx-10*scX,H-50+breath,cx-12*scX,H-120+breath);
+  ctx.closePath();ctx.fill();
+  // right calf
+  ctx.beginPath();
+  ctx.moveTo(cx+12*scX,H-120+breath);
+  ctx.quadraticCurveTo(cx+10*scX,H-80+breath,cx+22*scX,H-50+breath);
+  ctx.quadraticCurveTo(cx+38*scX,H-80+breath,cx+34*scX,H-120+breath);
+  ctx.closePath();ctx.fill();
+
+  // ═══════════════════════════════════
+  // UPPER LEGS (thighs)
+  // ═══════════════════════════════════
+  const tC=outfit.alt&&outfit.alt!=='none'?lt(ic(null,outfit.alt),5):skin;
+  ctx.fillStyle=tC;
+  // left thigh
+  ctx.beginPath();
+  ctx.moveTo(cx-42*scX,H-195+breath);
+  ctx.quadraticCurveTo(cx-45*scX,H-155+breath,cx-34*scX,H-120+breath);
+  ctx.quadraticCurveTo(cx-12*scX,H-120+breath,cx-16*scX,H-195+breath);
+  ctx.closePath();ctx.fill();
+  // right thigh
+  ctx.beginPath();
+  ctx.moveTo(cx+16*scX,H-195+breath);
+  ctx.quadraticCurveTo(cx+12*scX,H-120+breath,cx+34*scX,H-120+breath);
+  ctx.quadraticCurveTo(cx+45*scX,H-155+breath,cx+42*scX,H-195+breath);
+  ctx.closePath();ctx.fill();
+
+  // Knee caps
+  ctx.fillStyle=dk(tC,8);
+  ctx.beginPath();ctx.ellipse(cx-23*scX,H-122+breath,9*scX,8,0,0,Math.PI*2);ctx.fill();
+  ctx.beginPath();ctx.ellipse(cx+23*scX,H-122+breath,9*scX,8,0,0,Math.PI*2);ctx.fill();
+
+  // ═══════════════════════════════════
+  // TORSO
+  // ═══════════════════════════════════
+  const torsoC=outfit.ust&&outfit.ust!=='none'?ic(null,outfit.ust):skin;
+  const torsoD=dk(torsoC,15);
+  const torsoL=lt(torsoC,18);
+
+  // Waist/pelvis
+  ctx.fillStyle=torsoC;
+  ctx.beginPath();
+  ctx.moveTo(cx-42*scX,H-198+breath);
+  ctx.quadraticCurveTo(cx,H-185+breath,cx+42*scX,H-198+breath);
+  ctx.quadraticCurveTo(cx+44*scX,H-210+breath,cx+38*scX,H-220+breath);
+  ctx.quadraticCurveTo(cx,H-215+breath,cx-38*scX,H-220+breath);
+  ctx.quadraticCurveTo(cx-44*scX,H-210+breath,cx-42*scX,H-198+breath);
+  ctx.closePath();ctx.fill();
+
+  // Main torso
+  ctx.fillStyle=torsoC;
+  ctx.beginPath();
+  ctx.moveTo(cx-38*scX,H-222+breath);
+  ctx.quadraticCurveTo(cx-50*scX,H-255+breath,cx-45*scX,H-295+breath);
+  ctx.quadraticCurveTo(cx-20*scX,H-308+breath,cx,H-307+breath);
+  ctx.quadraticCurveTo(cx+20*scX,H-308+breath,cx+45*scX,H-295+breath);
+  ctx.quadraticCurveTo(cx+50*scX,H-255+breath,cx+38*scX,H-222+breath);
+  ctx.quadraticCurveTo(cx,H-228+breath,cx-38*scX,H-222+breath);
+  ctx.closePath();ctx.fill();
+
+  // Chest highlight
+  if(outfit.ust&&outfit.ust!=='none'){
+    // Chest plate
+    ctx.fillStyle=torsoL;
+    ctx.beginPath();
+    ctx.moveTo(cx-30*scX,H-285+breath);
+    ctx.quadraticCurveTo(cx-32*scX,H-260+breath,cx-22*scX,H-240+breath);
+    ctx.quadraticCurveTo(cx,H-245+breath,cx+22*scX,H-240+breath);
+    ctx.quadraticCurveTo(cx+32*scX,H-260+breath,cx+30*scX,H-285+breath);
+    ctx.quadraticCurveTo(cx,H-292+breath,cx-30*scX,H-285+breath);
+    ctx.closePath();ctx.fill();
+    // Belt
+    ctx.fillStyle=torsoD;
+    ctx.fillRect(cx-38*scX,H-225+breath,76*scX,9);
+  } else {
+    // Bare chest — muscle definition
+    ctx.save();ctx.globalAlpha=0.1;ctx.strokeStyle=dk(skin,30);ctx.lineWidth=1.5;
+    ctx.beginPath();ctx.moveTo(cx,H-300+breath);ctx.lineTo(cx,H-230+breath);ctx.stroke();
+    ctx.beginPath();ctx.moveTo(cx-12*scX,H-285+breath);ctx.quadraticCurveTo(cx-20*scX,H-265+breath,cx-10*scX,H-250+breath);ctx.stroke();
+    ctx.beginPath();ctx.moveTo(cx+12*scX,H-285+breath);ctx.quadraticCurveTo(cx+20*scX,H-265+breath,cx+10*scX,H-250+breath);ctx.stroke();
+    ctx.restore();
+  }
+
+  // Cloak overlay
+  if(['robe_mage','robe_arcane','robe_divine','robe_star'].includes(outfit.ust)){
+    ctx.save();ctx.globalAlpha=0.68;ctx.fillStyle=dk(torsoC,5);
+    ctx.beginPath();
+    ctx.moveTo(cx-36*scX,H-218+breath);ctx.lineTo(cx-22*scX,H-130+breath);
+    ctx.lineTo(cx+22*scX,H-130+breath);ctx.lineTo(cx+36*scX,H-218+breath);
+    ctx.closePath();ctx.fill();ctx.restore();
+  }
+
+  // ═══════════════════════════════════
+  // UPPER ARMS
+  // ═══════════════════════════════════
+  const armC=outfit.ust&&outfit.ust!=='none'?torsoC:skin;
+
+  // Left upper arm
+  ctx.fillStyle=armC;
+  ctx.beginPath();
+  ctx.moveTo(cx-44*scX,H-298+breath);
+  ctx.quadraticCurveTo(cx-62*scX,H-288+breath,cx-64*scX,H-258+breath);
+  ctx.quadraticCurveTo(cx-62*scX,H-238+breath,cx-52*scX,H-233+breath);
+  ctx.quadraticCurveTo(cx-42*scX,H-248+breath,cx-40*scX,H-278+breath);
+  ctx.closePath();ctx.fill();
+
+  // Right upper arm
+  ctx.fillStyle=armC;
+  ctx.beginPath();
+  ctx.moveTo(cx+44*scX,H-298+breath);
+  ctx.quadraticCurveTo(cx+62*scX,H-288+breath,cx+64*scX,H-258+breath);
+  ctx.quadraticCurveTo(cx+62*scX,H-238+breath,cx+52*scX,H-233+breath);
+  ctx.quadraticCurveTo(cx+42*scX,H-248+breath,cx+40*scX,H-278+breath);
+  ctx.closePath();ctx.fill();
+
+  // ═══════════════════════════════════
+  // ELBOWS
+  // ═══════════════════════════════════
+  ctx.fillStyle=dk(armC,10);
+  ctx.beginPath();ctx.ellipse(cx-56*scX,H-238+breath,8*scX,7,0,0,Math.PI*2);ctx.fill();
+  ctx.beginPath();ctx.ellipse(cx+56*scX,H-238+breath,8*scX,7,0,0,Math.PI*2);ctx.fill();
+
+  // ═══════════════════════════════════
+  // FOREARMS
+  // ═══════════════════════════════════
+  const fArmC=outfit.ust&&outfit.ust!=='none'?lt(armC,5):skin;
+
+  // Left forearm
+  ctx.fillStyle=fArmC;
+  ctx.beginPath();
+  ctx.moveTo(cx-52*scX,H-236+breath);
+  ctx.quadraticCurveTo(cx-62*scX,H-210+breath,cx-60*scX,H-185+breath);
+  ctx.quadraticCurveTo(cx-56*scX,H-178+breath,cx-48*scX,H-180+breath);
+  ctx.quadraticCurveTo(cx-42*scX,H-208+breath,cx-44*scX,H-234+breath);
+  ctx.closePath();ctx.fill();
+
+  // Right forearm
+  ctx.fillStyle=fArmC;
+  ctx.beginPath();
+  ctx.moveTo(cx+44*scX,H-234+breath);
+  ctx.quadraticCurveTo(cx+42*scX,H-208+breath,cx+48*scX,H-180+breath);
+  ctx.quadraticCurveTo(cx+56*scX,H-178+breath,cx+60*scX,H-185+breath);
+  ctx.quadraticCurveTo(cx+62*scX,H-210+breath,cx+52*scX,H-236+breath);
+  ctx.closePath();ctx.fill();
+
+  // ═══════════════════════════════════
+  // HANDS
+  // ═══════════════════════════════════
+  ctx.fillStyle=skin;
+  ctx.beginPath();ctx.ellipse(cx-54*scX,H-175+breath,9*scX,10,0.2,0,Math.PI*2);ctx.fill();
+  ctx.beginPath();ctx.ellipse(cx+54*scX,H-175+breath,9*scX,10,-0.2,0,Math.PI*2);ctx.fill();
+
+  // ═══════════════════════════════════
+  // WEAPONS (in hands)
+  // ═══════════════════════════════════
+  if(outfit.sol&&outfit.sol!=='none') drawWeapon(cx-70*scX,H-180+breath,outfit.sol,scX,'left');
+  if(outfit.sag&&outfit.sag!=='none') drawWeapon(cx+70*scX,H-185+breath,outfit.sag,scX,'right');
+
+  // ═══════════════════════════════════
+  // NECK
+  // ═══════════════════════════════════
+  ctx.fillStyle=skin;
+  ctx.beginPath();
+  ctx.moveTo(cx-12*scX,H-302+breath);
+  ctx.quadraticCurveTo(cx-14*scX,H-320+breath,cx-10*scX,H-330+breath);
+  ctx.quadraticCurveTo(cx,H-333+breath,cx+10*scX,H-330+breath);
+  ctx.quadraticCurveTo(cx+14*scX,H-320+breath,cx+12*scX,H-302+breath);
+  ctx.quadraticCurveTo(cx,H-305+breath,cx-12*scX,H-302+breath);
+  ctx.closePath();ctx.fill();
+
+  // ═══════════════════════════════════
+  // HEAD — proper proportions
+  // ═══════════════════════════════════
+  const hW=40*scX;  // half width
+  const hH=52;      // full height
+  const hY=H-332-hH+breath;
+
+  // Head shape — slightly wider at cheeks, tapering at chin and forehead
+  ctx.fillStyle=skin;
+  ctx.beginPath();
+  ctx.moveTo(cx,hY+5);  // top center
+  ctx.quadraticCurveTo(cx-hW*0.7,hY,cx-hW*0.9,hY+hH*0.25);  // left forehead
+  ctx.quadraticCurveTo(cx-hW,hY+hH*0.45,cx-hW*0.92,hY+hH*0.62); // left cheek
+  ctx.quadraticCurveTo(cx-hW*0.65,hY+hH*0.88,cx,hY+hH); // left chin
+  ctx.quadraticCurveTo(cx+hW*0.65,hY+hH*0.88,cx+hW*0.92,hY+hH*0.62); // right chin
+  ctx.quadraticCurveTo(cx+hW,hY+hH*0.45,cx+hW*0.9,hY+hH*0.25); // right cheek
+  ctx.quadraticCurveTo(cx+hW*0.7,hY,cx,hY+5); // right forehead
+  ctx.closePath();ctx.fill();
+
+  // Head shade (left side subtle)
+  ctx.save();ctx.globalAlpha=0.08;
+  ctx.fillStyle='#000';
+  ctx.beginPath();
+  ctx.moveTo(cx-hW*0.9,hY+hH*0.25);
+  ctx.quadraticCurveTo(cx-hW,hY+hH*0.45,cx-hW*0.92,hY+hH*0.62);
+  ctx.quadraticCurveTo(cx-hW*0.65,hY+hH*0.88,cx-hW*0.2,hY+hH);
+  ctx.lineTo(cx-hW*0.2,hY+hH*0.4);ctx.closePath();ctx.fill();ctx.restore();
+
+  // ═══════════════════════════════════
+  // HAIR (behind face)
+  // ═══════════════════════════════════
+  ctx.fillStyle=outfit.sac;
+  // Top of hair
+  ctx.beginPath();
+  ctx.moveTo(cx-hW*0.7,hY+5);
+  ctx.quadraticCurveTo(cx,hY-16,cx+hW*0.7,hY+5);
+  ctx.quadraticCurveTo(cx+hW*0.5,hY+2,cx,hY+2);
+  ctx.quadraticCurveTo(cx-hW*0.5,hY+2,cx-hW*0.7,hY+5);
+  ctx.closePath();ctx.fill();
+  // Left side hair
+  ctx.beginPath();
+  ctx.moveTo(cx-hW*0.88,hY+hH*0.25);
+  ctx.quadraticCurveTo(cx-hW*1.05,hY+hH*0.45,cx-hW*0.98,hY+hH*0.68);
+  ctx.quadraticCurveTo(cx-hW*0.85,hY+hH*0.8,cx-hW*0.7,hY+hH*0.72);
+  ctx.quadraticCurveTo(cx-hW*0.9,hY+hH*0.55,cx-hW*0.9,hY+hH*0.25);
+  ctx.closePath();ctx.fill();
+  // Right side hair
+  ctx.beginPath();
+  ctx.moveTo(cx+hW*0.88,hY+hH*0.25);
+  ctx.quadraticCurveTo(cx+hW*1.05,hY+hH*0.45,cx+hW*0.98,hY+hH*0.68);
+  ctx.quadraticCurveTo(cx+hW*0.85,hY+hH*0.8,cx+hW*0.7,hY+hH*0.72);
+  ctx.quadraticCurveTo(cx+hW*0.9,hY+hH*0.55,cx+hW*0.9,hY+hH*0.25);
+  ctx.closePath();ctx.fill();
+  // Back hair if not facing front
+  if(!isFront){
+    ctx.save();ctx.globalAlpha=0.9;ctx.fillStyle=outfit.sac;
+    ctx.beginPath();
+    ctx.moveTo(cx-hW*0.7,hY+5);
+    ctx.quadraticCurveTo(cx-hW*0.95,hY+hH*0.3,cx-hW*0.82,hY+hH*0.8);
+    ctx.lineTo(cx+hW*0.82,hY+hH*0.8);
+    ctx.quadraticCurveTo(cx+hW*0.95,hY+hH*0.3,cx+hW*0.7,hY+5);
+    ctx.quadraticCurveTo(cx,hY-12,cx-hW*0.7,hY+5);
+    ctx.closePath();ctx.fill();ctx.restore();
+  }
+
+  // ═══════════════════════════════════
+  // FACE — only when visible
+  // ═══════════════════════════════════
+  if(scX>0.25){
+    const fa=Math.min((scX-0.25)/0.4,1);
+    ctx.save();ctx.globalAlpha=fa;
+
+    const eyeY=hY+hH*0.4;
+    const eyeOff=hW*0.38*(flip?-1:1);
+    const eyeW=hW*0.16;
+    const eyeH=hH*0.15;
+
+    // ── Eyebrows ──
+    ctx.fillStyle=outfit.sac;
+    // Left brow
+    ctx.beginPath();
+    ctx.moveTo(cx-eyeOff-eyeW*1.1,eyeY-eyeH*1.3);
+    ctx.quadraticCurveTo(cx-eyeOff,eyeY-eyeH*1.5,cx-eyeOff+eyeW*1.1,eyeY-eyeH*1.2);
+    ctx.quadraticCurveTo(cx-eyeOff,eyeY-eyeH*1.2,cx-eyeOff-eyeW*1.1,eyeY-eyeH*1.0);
+    ctx.closePath();ctx.fill();
+    // Right brow
+    ctx.beginPath();
+    ctx.moveTo(cx+eyeOff-eyeW*1.1,eyeY-eyeH*1.2);
+    ctx.quadraticCurveTo(cx+eyeOff,eyeY-eyeH*1.5,cx+eyeOff+eyeW*1.1,eyeY-eyeH*1.3);
+    ctx.quadraticCurveTo(cx+eyeOff+eyeW*1.1,eyeY-eyeH*1.0,cx+eyeOff,eyeY-eyeH*1.2);
+    ctx.closePath();ctx.fill();
+
+    // ── Eye whites ──
+    ctx.fillStyle='#FFFEF8';
+    ctx.beginPath();ctx.ellipse(cx-eyeOff,eyeY,eyeW,eyeH,0,0,Math.PI*2);ctx.fill();
+    ctx.beginPath();ctx.ellipse(cx+eyeOff,eyeY,eyeW,eyeH,0,0,Math.PI*2);ctx.fill();
+    // Eye outline
+    ctx.strokeStyle=dk(skin,30);ctx.lineWidth=0.8;
+    ctx.beginPath();ctx.ellipse(cx-eyeOff,eyeY,eyeW,eyeH,0,0,Math.PI*2);ctx.stroke();
+    ctx.beginPath();ctx.ellipse(cx+eyeOff,eyeY,eyeW,eyeH,0,0,Math.PI*2);ctx.stroke();
+
+    // ── Iris ──
+    const lookOff=(flip?-1:1)*1.5;
+    ctx.fillStyle=outfit.goz;
+    ctx.beginPath();ctx.ellipse(cx-eyeOff+lookOff,eyeY,eyeW*0.68,eyeH*0.82,0,0,Math.PI*2);ctx.fill();
+    ctx.beginPath();ctx.ellipse(cx+eyeOff+lookOff,eyeY,eyeW*0.68,eyeH*0.82,0,0,Math.PI*2);ctx.fill();
+
+    // ── Pupils ──
+    ctx.fillStyle='#050208';
+    ctx.beginPath();ctx.ellipse(cx-eyeOff+lookOff,eyeY,eyeW*0.36,eyeH*0.5,0,0,Math.PI*2);ctx.fill();
+    ctx.beginPath();ctx.ellipse(cx+eyeOff+lookOff,eyeY,eyeW*0.36,eyeH*0.5,0,0,Math.PI*2);ctx.fill();
+
+    // ── Eye shine ──
+    ctx.fillStyle='rgba(255,255,255,0.88)';
+    ctx.beginPath();ctx.ellipse(cx-eyeOff+lookOff+eyeW*0.2,eyeY-eyeH*0.22,eyeW*0.18,eyeH*0.2,0,0,Math.PI*2);ctx.fill();
+    ctx.beginPath();ctx.ellipse(cx+eyeOff+lookOff+eyeW*0.2,eyeY-eyeH*0.22,eyeW*0.18,eyeH*0.2,0,0,Math.PI*2);ctx.fill();
+    // Small secondary shine
+    ctx.fillStyle='rgba(255,255,255,0.5)';
+    ctx.beginPath();ctx.ellipse(cx-eyeOff+lookOff-eyeW*0.15,eyeY+eyeH*0.1,eyeW*0.09,eyeH*0.1,0,0,Math.PI*2);ctx.fill();
+    ctx.beginPath();ctx.ellipse(cx+eyeOff+lookOff-eyeW*0.15,eyeY+eyeH*0.1,eyeW*0.09,eyeH*0.1,0,0,Math.PI*2);ctx.fill();
+
+    // ── Eyelashes (top) ──
+    ctx.strokeStyle=outfit.sac;ctx.lineWidth=1;
+    for(let i=0;i<5;i++){
+      const lx=cx-eyeOff-eyeW+i*(eyeW*2/4);
+      ctx.beginPath();ctx.moveTo(lx,eyeY-eyeH*0.9);ctx.lineTo(lx-0.5,eyeY-eyeH*1.3);ctx.stroke();
+      ctx.beginPath();ctx.moveTo(cx+eyeOff-eyeW+i*(eyeW*2/4),eyeY-eyeH*0.9);ctx.lineTo(cx+eyeOff-eyeW+i*(eyeW*2/4)-0.5,eyeY-eyeH*1.3);ctx.stroke();
+    }
+
+    // ── Nose ──
+    ctx.strokeStyle=dk(skin,22);ctx.lineWidth=1.2;ctx.lineCap='round';
+    const noseY=hY+hH*0.6;
+    const noseCx=cx+(flip?-1:1)*1;
+    ctx.beginPath();ctx.moveTo(noseCx,eyeY+eyeH);ctx.lineTo(noseCx,noseY);ctx.stroke();
+    ctx.beginPath();ctx.moveTo(noseCx-7*scX,noseY);ctx.quadraticCurveTo(noseCx,noseY+5,noseCx+7*scX,noseY);ctx.stroke();
+
+    // ── Mouth ──
+    const mouthY=hY+hH*0.77;
+    ctx.strokeStyle=dk(skin,28);ctx.lineWidth=1.4;
+    // Upper lip line
+    ctx.beginPath();ctx.moveTo(cx-8*scX,mouthY-1);ctx.quadraticCurveTo(cx,mouthY-3,cx+8*scX,mouthY-1);ctx.stroke();
+    // Lower lip / smile
+    ctx.beginPath();ctx.arc(cx+(flip?-1:1)*0.5,mouthY+1,7*scX,0.15,Math.PI-0.15);ctx.stroke();
+    // Lip fill
+    ctx.fillStyle=lt(dk(skin,15),0);
+    ctx.save();ctx.globalAlpha=0.25;ctx.beginPath();ctx.ellipse(cx,mouthY+2,8*scX,4,0,0,Math.PI*2);ctx.fill();ctx.restore();
+
+    // ── Cheek blush ──
+    ctx.save();ctx.globalAlpha=0.09;ctx.fillStyle='#FF4466';
+    ctx.beginPath();ctx.ellipse(cx-eyeOff*1.1,eyeY+eyeH*1.8,eyeW*1.4,eyeH*0.9,0,0,Math.PI*2);ctx.fill();
+    ctx.beginPath();ctx.ellipse(cx+eyeOff*1.1,eyeY+eyeH*1.8,eyeW*1.4,eyeH*0.9,0,0,Math.PI*2);ctx.fill();
+    ctx.restore();
+
+    // ── Ear ──
+    if(scX<0.7){
+      const earSide=flip?-1:1;
+      ctx.fillStyle=lt(skin,5);
+      ctx.beginPath();ctx.ellipse(cx+earSide*hW*0.95,eyeY,7*scX,10,0.2,0,Math.PI*2);ctx.fill();
+      ctx.strokeStyle=dk(skin,15);ctx.lineWidth=1;
+      ctx.beginPath();ctx.ellipse(cx+earSide*hW*0.95,eyeY,4*scX,7,0.2,0,Math.PI*2);ctx.stroke();
+    }
+
+    ctx.restore();
+  }
+
+  // ═══════════════════════════════════
+  // HELMET / CROWN (over hair)
+  // ═══════════════════════════════════
+  if(outfit.baslik&&outfit.baslik!=='none') drawHelm(cx,hY,hW,hH,outfit.baslik,scX,breath);
+
+  // ─ ACCESSORY
+  if(outfit.aksesuar&&outfit.aksesuar!=='none') drawAcc(cx,hY+hH*0.95,outfit.aksesuar,scX);
+
+  // WINGS (front layer)
+  if(outfit.kanat&&outfit.kanat!=='none') drawWings(cx,H-280+breath,scX,false);
+}
+
+// ── HELMET DRAW ──
+function drawHelm(cx,hY,hW,hH,id,scX,br){
+  const c=ic(null,id);
+  ctx.save();
+  if(['crown_gold','crown_moon','crown_star','crown_light','crown_nature','crown_sun','crown_crystal'].includes(id)){
+    // Crown spikes
+    ctx.fillStyle=c;
+    const pts=5;const spread=1.5;
+    for(let i=0;i<pts;i++){
+      const t=(i/(pts-1)-0.5)*spread;
+      const bx=cx+Math.sin(t)*hW*0.82*scX;
+      const by=hY+5;
+      const h2=14+Math.abs(Math.cos(t*Math.PI*.6))*10;
+      ctx.beginPath();ctx.moveTo(bx-5*scX,by);ctx.lineTo(bx,by-h2);ctx.lineTo(bx+5*scX,by);ctx.closePath();ctx.fill();
+    }
+    ctx.fillRect(cx-hW*0.88*scX,hY+2,hW*1.76*scX,9);
+    ctx.fillStyle=lt(c,30);ctx.globalAlpha=0.7;
+    ctx.beginPath();ctx.ellipse(cx,hY+6,3*scX,3,0,0,Math.PI*2);ctx.fill();
+  } else if(['hood_mage'].includes(id)){
+    ctx.fillStyle=c;
+    ctx.beginPath();ctx.moveTo(cx,hY-28);ctx.lineTo(cx-hW*0.95*scX,hY+hH*0.35);ctx.lineTo(cx+hW*0.95*scX,hY+hH*0.35);ctx.closePath();ctx.fill();
+    ctx.fillStyle=dk(c,10);
+    ctx.fillRect(cx-hW*0.95*scX,hY+hH*0.25,hW*1.9*scX,14);
+  } else {
+    // Full helmet
+    ctx.fillStyle=c;
+    ctx.beginPath();ctx.ellipse(cx,hY+hH*0.18,hW*1.02*scX,hH*0.7,0,Math.PI,0);ctx.fill();
+    ctx.fillRect(cx-hW*0.95*scX,hY+hH*0.15,hW*1.9*scX,hH*0.35);
+    if(['helm_knight','helm_full','helm_dragon'].includes(id)){
+      // Visor
+      ctx.fillStyle=dk(c,22);ctx.beginPath();ctx.ellipse(cx,hY+hH*0.4,hW*0.6*scX,hH*0.13,0,0,Math.PI*2);ctx.fill();
+      // Slit
+      ctx.fillStyle=lt(c,40);ctx.globalAlpha=0.4;ctx.fillRect(cx-hW*0.38*scX,hY+hH*0.38,hW*0.76*scX,5);
+    }
+    // Shine
+    ctx.fillStyle='#fff';ctx.globalAlpha=0.18;
+    ctx.beginPath();ctx.ellipse(cx-hW*0.28*scX,hY+hH*0.1,hW*0.25*scX,hH*0.12,0,0,Math.PI*2);ctx.fill();
+  }
+  ctx.restore();
+}
+
+// ── WEAPON DRAW ──
+function drawWeapon(x,y,id,scX,hand){
+  const c=ic(null,id);
+  ctx.save();
+  const isShield=id.startsWith('sh_');
+  const isStaff=id.startsWith('staff_');
+  const isBow=id==='bow';
+  const isAxe=id==='axe';
+  const isHammer=id==='hammer';
+  const isDagger=id==='dagger'||id==='dagger2';
+  const isOrb=id==='orb';
+  const isTome=id==='tome';
+
+  if(isShield){
+    const r=Math.max(20*scX,6);
+    ctx.fillStyle=c;
+    ctx.beginPath();ctx.moveTo(x,y-r*1.4);ctx.lineTo(x+r,y-r*.5);ctx.lineTo(x+r,y+r*.5);ctx.lineTo(x,y+r*1.4);ctx.lineTo(x-r,y+r*.5);ctx.lineTo(x-r,y-r*.5);ctx.closePath();ctx.fill();
+    ctx.strokeStyle=dk(c,20);ctx.lineWidth=1.5;ctx.stroke();
+    ctx.fillStyle=lt(c,30);ctx.beginPath();ctx.arc(x,y,r*.4,0,Math.PI*2);ctx.fill();
+    ctx.save();ctx.globalAlpha=.25;ctx.fillStyle='#fff';ctx.beginPath();ctx.ellipse(x-r*.2,y-r*.5,r*.28,r*.18,-.4,0,Math.PI*2);ctx.fill();ctx.restore();
+  } else if(isBow){
+    ctx.strokeStyle=c;ctx.lineWidth=Math.max(3*scX,1.5);ctx.lineCap='round';
+    ctx.beginPath();ctx.arc(x,y,24*scX,.6*Math.PI,1.4*Math.PI);ctx.stroke();
+    ctx.strokeStyle='#C8A020';ctx.lineWidth=1.2;
+    const dx=x-24*scX*Math.cos(.6*Math.PI),dy1=y+24*scX*Math.sin(.6*Math.PI),dy2=y-24*scX*Math.sin(.6*Math.PI);
+    ctx.beginPath();ctx.moveTo(dx,dy1);ctx.lineTo(dx,dy2);ctx.stroke();
+  } else if(isStaff){
+    const len=48*Math.max(scX,.4);
+    // Glow
+    ctx.save();ctx.globalAlpha=.2+Math.sin(breathT*2)*.08;ctx.shadowColor=c;ctx.shadowBlur=12;
+    ctx.strokeStyle=c;ctx.lineWidth=3;ctx.beginPath();ctx.moveTo(x,y+len);ctx.lineTo(x,y-len);ctx.stroke();ctx.restore();
+    ctx.strokeStyle=dk(c,10);ctx.lineWidth=Math.max(4*scX,2);ctx.lineCap='round';
+    ctx.beginPath();ctx.moveTo(x,y+len);ctx.lineTo(x,y-len);ctx.stroke();
+    // Orb top
+    const og=ctx.createRadialGradient(x,y-len,1,x,y-len,10*scX);
+    og.addColorStop(0,lt(c,50));og.addColorStop(1,c);
+    ctx.fillStyle=og;ctx.beginPath();ctx.arc(x,y-len,10*scX,0,Math.PI*2);ctx.fill();
+    ctx.save();ctx.globalAlpha=.3+Math.sin(breathT*2)*.12;ctx.fillStyle=lt(c,30);ctx.beginPath();ctx.arc(x,y-len,16*scX,0,Math.PI*2);ctx.fill();ctx.restore();
+  } else if(isAxe){
+    ctx.strokeStyle=dk(c,8);ctx.lineWidth=3;ctx.beginPath();ctx.moveTo(x,y+32);ctx.lineTo(x,y-8);ctx.stroke();
+    ctx.fillStyle=c;
+    ctx.beginPath();ctx.moveTo(x,y-8);ctx.quadraticCurveTo(x+22*scX,y-28,x+16*scX,y+4);ctx.lineTo(x,y-8);ctx.closePath();ctx.fill();
+    ctx.strokeStyle=dk(c,15);ctx.lineWidth=1;ctx.stroke();
+    ctx.save();ctx.globalAlpha=.35;ctx.fillStyle='#fff';ctx.beginPath();ctx.moveTo(x+1,y-10);ctx.quadraticCurveTo(x+14*scX,y-22,x+12*scX,y);ctx.lineTo(x+1,y-10);ctx.closePath();ctx.fill();ctx.restore();
+  } else if(isHammer){
+    ctx.strokeStyle=dk(c,5);ctx.lineWidth=Math.max(4*scX,2);ctx.beginPath();ctx.moveTo(x,y+34);ctx.lineTo(x,y-4);ctx.stroke();
+    ctx.fillStyle=c;ctx.beginPath();ctx.roundRect(x-12*scX,y-24,24*scX,16,3);ctx.fill();
+    ctx.strokeStyle=dk(c,15);ctx.lineWidth=1;ctx.stroke();
+    ctx.save();ctx.globalAlpha=.3;ctx.fillStyle='#fff';ctx.beginPath();ctx.roundRect(x-10*scX,y-22,10*scX,5,2);ctx.fill();ctx.restore();
+  } else if(isOrb){
+    const og=ctx.createRadialGradient(x,y,1,x,y,14*scX);
+    og.addColorStop(0,lt(c,50));og.addColorStop(0.6,c);og.addColorStop(1,dk(c,10));
+    ctx.fillStyle=og;ctx.beginPath();ctx.arc(x,y,14*scX,0,Math.PI*2);ctx.fill();
+    ctx.save();ctx.globalAlpha=.25+Math.sin(breathT*2)*.1;ctx.fillStyle=c;ctx.beginPath();ctx.arc(x,y,20*scX,0,Math.PI*2);ctx.fill();ctx.restore();
+    ctx.save();ctx.globalAlpha=.4;ctx.fillStyle='#fff';ctx.beginPath();ctx.ellipse(x-4*scX,y-5,5*scX,4,-.5,0,Math.PI*2);ctx.fill();ctx.restore();
+  } else if(isTome){
+    ctx.fillStyle=c;ctx.beginPath();ctx.roundRect(x-10*scX,y-18,20*scX,32,3);ctx.fill();
+    ctx.strokeStyle=dk(c,20);ctx.lineWidth=1;ctx.stroke();
+    ctx.fillStyle=lt(c,25);ctx.beginPath();ctx.roundRect(x-8*scX,y-14,16*scX,10,2);ctx.fill();
+    ctx.fillStyle=lt(c,25);ctx.beginPath();ctx.roundRect(x-8*scX,y-1,16*scX,4,1);ctx.fill();
+  } else {
+    // ── SWORD ──
+    const isLong=['greatsword','spear'].includes(id);
+    const len=(isLong?58:42)*Math.max(scX,.3);
+    const bw=(isLong?5:6)*Math.max(scX,.2);
+    // Blade glow
+    ctx.save();ctx.globalAlpha=.18+Math.sin(breathT)*.06;ctx.shadowColor=c;ctx.shadowBlur=14;
+    ctx.fillStyle=c;ctx.beginPath();ctx.moveTo(x,y-len);ctx.lineTo(x+bw*1.1,y);ctx.lineTo(x-bw*1.1,y);ctx.closePath();ctx.fill();ctx.restore();
+    // Blade gradient
+    const bg=ctx.createLinearGradient(x-bw,y-len,x+bw,y);
+    bg.addColorStop(0,lt(c,45));bg.addColorStop(0.5,c);bg.addColorStop(1,dk(c,15));
+    ctx.fillStyle=bg;ctx.beginPath();ctx.moveTo(x,y-len);ctx.lineTo(x+bw,y);ctx.lineTo(x-bw,y);ctx.closePath();ctx.fill();
+    // Blade edge shimmer
+    ctx.strokeStyle=lt(c,35);ctx.lineWidth=.8;ctx.beginPath();ctx.moveTo(x,y-len);ctx.lineTo(x+bw*.3,y-len*.3);ctx.stroke();
+    // Guard
+    const gh=ctx.createLinearGradient(x-14*scX,y,x+14*scX,y+5);
+    gh.addColorStop(0,dk(c,8));gh.addColorStop(.5,lt(c,12));gh.addColorStop(1,dk(c,8));
+    ctx.fillStyle=gh;ctx.beginPath();ctx.roundRect(x-14*scX,y,28*scX,5,2);ctx.fill();
+    // Handle
+    const hg=ctx.createLinearGradient(x-3,y+4,x+3,y+4);
+    hg.addColorStop(0,'#4A2008');hg.addColorStop(.5,'#6A3010');hg.addColorStop(1,'#4A2008');
+    ctx.fillStyle=hg;ctx.beginPath();ctx.roundRect(x-3.5*scX,y+4,7*scX,16,3);ctx.fill();
+    // Handle wrap
+    ctx.strokeStyle='#2A1005';ctx.lineWidth=.9;
+    for(let i=0;i<3;i++){ctx.beginPath();ctx.moveTo(x-3.5*scX,y+7+i*4);ctx.lineTo(x+3.5*scX,y+7+i*4);ctx.stroke();}
+    // Pommel
+    ctx.fillStyle=lt(c,8);ctx.beginPath();ctx.arc(x,y+20,5*Math.max(scX,.25),0,Math.PI*2);ctx.fill();
+    // Blade shine
+    ctx.save();ctx.globalAlpha=.38;ctx.fillStyle='rgba(255,255,255,.9)';
+    ctx.beginPath();ctx.moveTo(x,y-len);ctx.lineTo(x+bw*.32,y-len*.3);ctx.lineTo(x-bw*.05,y-len*.3);ctx.closePath();ctx.fill();ctx.restore();
+  }
+  ctx.restore();
+}
+
+// ── WINGS ──
+function drawWings(cx,y,scX,behind){
+  const id=outfit.kanat;
+  const wc={eagle:'#78350F',butterfly:'#DB2777',angel:'#F8F4E8',fire:'#EF4444',ice:'#60A5FA',rainbow:'#C084FC',light:'#FFFBEB',thunder:'#FDE047',dragon:'#DC2626',moon:'#818CF8',sun:'#F59E0B'};
+  const c=wc[id]||'#9CA3AF';
+  ctx.save();
+  ctx.globalAlpha=behind?.55:.82;
+  const ww=65*Math.max(scX*1.05,.22);
+  const flap=Math.sin(breathT*.7)*7;
+  ctx.fillStyle=c;
+  // Left wing
+  ctx.beginPath();ctx.moveTo(cx-6,y);ctx.quadraticCurveTo(cx-ww*1.45,y-40+flap,cx-ww,y-90+flap);ctx.quadraticCurveTo(cx-ww*.6,y-55,cx-6,y+34);ctx.closePath();ctx.fill();
+  // Right wing
+  ctx.beginPath();ctx.moveTo(cx+6,y);ctx.quadraticCurveTo(cx+ww*1.45,y-40+flap,cx+ww,y-90+flap);ctx.quadraticCurveTo(cx+ww*.6,y-55,cx+6,y+34);ctx.closePath();ctx.fill();
+  // Wing veins
+  ctx.strokeStyle=lt(c,20);ctx.lineWidth=1.4;ctx.globalAlpha=.4;
+  [-1,1].forEach(s=>{
+    ctx.beginPath();ctx.moveTo(cx+s*6,y+10);ctx.lineTo(cx+s*ww*.9,y-70+flap);ctx.stroke();
+    ctx.beginPath();ctx.moveTo(cx+s*6,y+10);ctx.lineTo(cx+s*ww*.56,y-80+flap);ctx.stroke();
+    ctx.beginPath();ctx.moveTo(cx+s*6,y+10);ctx.lineTo(cx+s*ww*.28,y-85+flap);ctx.stroke();
+  });
+  ctx.restore();
+}
+
+// ── ACCESSORY ──
+function drawAcc(cx,y,id,scX){
+  ctx.save();
+  const c=ic(null,id)||'#FFD700';
+  ctx.strokeStyle='#C8A020';ctx.lineWidth=1.2*Math.max(scX,.3);
+  ctx.beginPath();ctx.arc(cx,y-6,22*Math.max(scX,.2),.25,Math.PI-.25);ctx.stroke();
+  const pg=ctx.createRadialGradient(cx,y,1,cx,y,7*Math.max(scX,.2));
+  pg.addColorStop(0,lt(c,40));pg.addColorStop(1,c);
+  ctx.fillStyle=pg;ctx.beginPath();ctx.arc(cx,y,7*Math.max(scX,.2),0,Math.PI*2);ctx.fill();
+  ctx.save();ctx.globalAlpha=.25+Math.sin(breathT*1.5)*.1;ctx.fillStyle=c;ctx.beginPath();ctx.arc(cx,y,11*Math.max(scX,.2),0,Math.PI*2);ctx.fill();ctx.restore();
+  ctx.restore();
+}
+
+// HELPERS
+function lt(h,a){try{const n=parseInt(h.replace('#',''),16);return`#${[((n>>16)&0xff)+a,((n>>8)&0xff)+a,(n&0xff)+a].map(v=>Math.min(255,v).toString(16).padStart(2,'0')).join('')}`;}catch{return h;}}
+function dk(h,a){try{const n=parseInt(h.replace('#',''),16);return`#${[((n>>16)&0xff)-a,((n>>8)&0xff)-a,(n&0xff)-a].map(v=>Math.max(0,v).toString(16).padStart(2,'0')).join('')}`;}catch{return h;}}
+
+// ── SELECTION PANEL ──
+function selTab(i,el){curTab=i;document.querySelectorAll('.stab').forEach(t=>t.classList.remove('act'));el.classList.add('act');renderSel();}
+
+function wCard(slot,it){return`<div class="item-card${outfit[slot]===it.id?' sel':''}" onclick="equip('${slot}','${it.id}')"><div class="item-card-icon">${it.em}</div><div class="item-card-name">${it.n}</div><div class="item-card-desc">${it.d||''}</div></div>`;}
+function iBt(slot,it){return`<div class="ibtn${outfit[slot]===it.id?' sel':''}" onclick="equip('${slot}','${it.id}')"><span class="ibtn-em">${it.em}</span><span class="ibtn-nm">${it.n}</span></div>`;}
+
+function renderSel(){
+  const el=document.getElementById('selBody');
+  if(curTab===0){
+    el.innerHTML=`
+      <div class="sel-sec">Karakter Tipi</div>
+      <div class="igrid3">${CINS.map(it=>`<div class="ibtn${outfit.cins===it.id?' sel':''}" onclick="equip('cins','${it.id}')"><span class="ibtn-em">🧑</span><span class="ibtn-nm">${it.n}</span></div>`).join('')}</div>
+      <div class="sel-sec">Ten Rengi</div>
+      <div class="cgrid-c">${TEN.map(c=>`<div class="cbtn${outfit.ten===c?' sel':''}" style="background:${c}" onclick="pickCol('ten','${c}')"></div>`).join('')}</div>
+      <div class="sel-sec">Saç Rengi</div>
+      <div class="cgrid-c">${SAC.map(c=>`<div class="cbtn${outfit.sac===c?' sel':''}" style="background:${c}" onclick="pickCol('sac','${c}')"></div>`).join('')}</div>
+      <div class="sel-sec">Göz Rengi</div>
+      <div class="cgrid-c">${GOZ.map(c=>`<div class="cbtn${outfit.goz===c?' sel':''}" style="background:${c}" onclick="pickCol('goz','${c}')"></div>`).join('')}</div>
+    `;
+  } else if(curTab===1){
+    el.innerHTML=`
+      <div class="sel-sec">🪖 Başlık / Taç</div><div class="igrid3">${ARMORS.baslik.map(it=>iBt('baslik',it)).join('')}</div>
+      <div class="sel-sec">🛡️ Üst / Zırh</div><div class="igrid3">${ARMORS.ust.map(it=>iBt('ust',it)).join('')}</div>
+      <div class="sel-sec">👖 Alt / Bot</div><div class="igrid3">${ARMORS.alt.map(it=>iBt('alt',it)).join('')}</div>
+    `;
+  } else if(curTab===2){
+    el.innerHTML=`
+      <div class="sel-sec">⚔️ Sağ El — Saldırı Silahı</div>
+      <div class="item-cards">${WEAPONS.sag.map(it=>wCard('sag',it)).join('')}</div>
+      <div class="sel-sec">🛡️ Sol El — Kalkan / Ekipman</div>
+      <div class="item-cards">${WEAPONS.sol.map(it=>wCard('sol',it)).join('')}</div>
+    `;
+  } else {
+    el.innerHTML=`
+      <div class="sel-sec">🦅 Kanatlar</div><div class="igrid3">${EXTRAS.kanat.map(it=>iBt('kanat',it)).join('')}</div>
+      <div class="sel-sec">💎 Aksesuar / Kolye</div><div class="igrid3">${EXTRAS.aksesuar.map(it=>iBt('aksesuar',it)).join('')}</div>
+      <div class="sel-sec">✨ Aura / Efekt</div><div class="igrid3">${EXTRAS.aura.map(it=>iBt('aura',it)).join('')}</div>
+    `;
+  }
+}
+
+function equip(slot,val){
+  outfit[slot]=val;
+  if(slot==='cins'){const f=CINS.find(i=>i.id===val);if(f)outfit.ten=f.s;}
+  renderSel();renderEq();
+}
+function pickCol(slot,c){outfit[slot]=c;renderSel();}
+
+function renderEq(){
+  const all=[...ARMORS.baslik,...ARMORS.ust,...ARMORS.alt,...WEAPONS.sag,...WEAPONS.sol,...EXTRAS.kanat,...EXTRAS.aksesuar,...EXTRAS.aura];
+  const SL=[{k:'baslik',l:'Başlık'},{k:'ust',l:'Üst'},{k:'alt',l:'Alt'},{k:'sag',l:'Sağ El'},{k:'sol',l:'Sol El'},{k:'kanat',l:'Kanatlar'},{k:'aksesuar',l:'Aksesuar'},{k:'aura',l:'Aura'}];
+  document.getElementById('eqList').innerHTML=SL.filter(s=>outfit[s.k]&&outfit[s.k]!=='none').map(s=>{
+    const it=all.find(i=>i.id===outfit[s.k]);
+    return `<div class="eq-chip">${it?.em||'●'} ${it?.n||outfit[s.k]}<button class="eq-del" onclick="equip('${s.k}','none')">✕</button></div>`;
+  }).join('');
+}
+
+// STATS
+function buildStats(){document.getElementById('statSl').innerHTML=STAT_DEFS.map(s=>`<div class="ssr"><span class="ssl">${s.label}</span><input type="range" class="ssi" id="sl-${s.id}" min="1" max="100" value="50" oninput="document.getElementById('sv-${s.id}').textContent=this.value"><span class="ssv" id="sv-${s.id}">50</span></div>`).join('');}
+function addPow(lid){const l=document.getElementById(lid);const d=document.createElement('div');d.className='pi';d.innerHTML=`<input class="pin" placeholder="Yaz..."><button class="pdl" onclick="this.parentElement.remove()">✕</button>`;l.appendChild(d);d.querySelector('input').focus();}
+function getPows(lid){return[...document.querySelectorAll(`#${lid} .pin`)].map(i=>i.value.trim()).filter(Boolean);}
+
+// SAVE/DELETE
+function saveChar(){
+  const name=document.getElementById('fName').value.trim();if(!name){alert('Adını yaz!');return;}
+  const stats={};STAT_DEFS.forEach(s=>stats[s.id]=+document.getElementById(`sl-${s.id}`).value);
+  const ch={id:editId||Date.now(),name,type:document.getElementById('fType').value.trim(),rarity:document.getElementById('fRarity').value,side:document.getElementById('fSide').value,story:document.getElementById('fStory').value.trim(),notes:document.getElementById('fNotes').value.trim(),powers:getPows('powList'),weaknesses:getPows('weakList'),outfit:{...outfit},stats,created:editId?chars.find(c=>c.id===editId)?.created:Date.now()};
+  if(editId){const i=chars.findIndex(c=>c.id===editId);if(i>-1)chars[i]=ch;editId=null;}else chars.push(ch);
+  localStorage.setItem('kd_v6',JSON.stringify(chars));
+  renderSB();renderHD();gotoDetail(ch.id);
+}
+function delChar(id){if(!confirm('Silmek istediğinden emin misin?'))return;chars=chars.filter(c=>c.id!==id);localStorage.setItem('kd_v6',JSON.stringify(chars));renderSB();renderHD();gotoHome();}
+
+// SNAPSHOT
+function snap(ch,W,H){
+  const c2=document.createElement('canvas');c2.width=W;c2.height=H;
+  const x2=c2.getContext('2d');
+  const prev={...outfit};const sR=rotAngle,sB=breathT;
+  Object.assign(outfit,ch.outfit||{});rotAngle=0;breathT=0;
+  const sc=W/260;x2.scale(sc,sc);
+  drawChar();x2.drawImage(canvas,0,0,260,400,0,0,260/sc,400/sc);
+  rotAngle=sR;breathT=sB;Object.assign(outfit,prev);
+  return c2.toDataURL();
+}
+
+// VIEWS
+function sv(id,t,s){document.querySelectorAll('.view').forEach(v=>v.classList.remove('act'));document.getElementById(id).classList.add('act');document.getElementById('tbT').textContent=t;document.getElementById('tbS').textContent=s;}
+function gotoHome(){sv('vHome','Karakter Dünyam','Tüm karakterlerin burada');renderHD();}
+function gotoAll(){sv('vAll','Tüm Karakterler',`${chars.length} karakter`);renderAll();}
+
+function gotoNew(id=null){
+  editId=id;const ch=id?chars.find(c=>c.id===id):null;
+  outfit=ch?{...ch.outfit}:{cins:'human',ten:'#D4956A',sac:'#1C1C1C',goz:'#1040A0',baslik:'none',ust:'none',alt:'none',sag:'sw_iron',sol:'sh_iron',kanat:'none',aksesuar:'none',aura:'none'};
+  document.getElementById('fName').value=ch?.name||'';document.getElementById('fType').value=ch?.type||'';document.getElementById('fRarity').value=ch?.rarity||'Epik';document.getElementById('fSide').value=ch?.side||'Kahraman';document.getElementById('fStory').value=ch?.story||'';document.getElementById('fNotes').value=ch?.notes||'';
+  document.getElementById('powList').innerHTML='';document.getElementById('weakList').innerHTML='';
+  (ch?.powers||[]).forEach(p=>{addPow('powList');document.querySelector('#powList .pi:last-child input').value=p;});
+  (ch?.weaknesses||[]).forEach(w=>{addPow('weakList');document.querySelector('#weakList .pi:last-child input').value=w;});
+  STAT_DEFS.forEach(s=>{document.getElementById(`sl-${s.id}`).value=ch?.stats?.[s.id]||50;document.getElementById(`sv-${s.id}`).textContent=ch?.stats?.[s.id]||50;});
+  rotAngle=0;updRot();renderEq();renderSel();
+  sv('vNew',id?'Düzenle':'Yeni Karakter','Giydirin, sürükleyin, döndürün!');
+}
+
+function gotoDetail(id){
+  const ch=chars.find(c=>c.id===id);if(!ch)return;
+  const rc=RC[ch.rarity]||'ep';const rcol=RCOL[rc];
+  const img=snap(ch,180,277);
+  const all=[...ARMORS.baslik,...ARMORS.ust,...ARMORS.alt,...WEAPONS.sag,...WEAPONS.sol,...EXTRAS.kanat,...EXTRAS.aksesuar,...EXTRAS.aura];
+  const ov=ch.outfit||{};
+  const eq=[{k:'baslik',l:'Başlık'},{k:'ust',l:'Üst'},{k:'alt',l:'Alt'},{k:'sag',l:'Sağ El'},{k:'sol',l:'Sol El'},{k:'kanat',l:'Kanatlar'},{k:'aksesuar',l:'Aksesuar'},{k:'aura',l:'Aura'}].filter(s=>ov[s.k]&&ov[s.k]!=='none').map(s=>{const it=all.find(i=>i.id===ov[s.k]);return`<span style="background:var(--s2);border:1px solid var(--bd);border-radius:20px;padding:3px 9px;font-size:10px;color:var(--tx2);display:inline-block;margin:2px">${it?.em||'●'} ${it?.n||ov[s.k]}</span>`;}).join('');
+  document.getElementById('detC').innerHTML=`
+    <div class="det-head"><div class="det-line line-${rc}"></div>
+      <div class="det-grid">
+        <div style="text-align:center"><img src="${img}" width="180" height="277" style="border-radius:12px;border:2px solid ${rcol};box-shadow:0 0 24px ${rcol}44;margin-bottom:8px"><div>${eq}</div></div>
+        <div>
+          <div class="det-name">${ch.name}</div><div class="det-type">${ch.type||'Tür yok'}</div>
+          <div class="det-badges"><span class="det-badge bg-${rc} r-${rc}">⭐ ${ch.rarity}</span><span class="det-badge" style="background:rgba(255,255,255,.05);border:1px solid var(--bd)">${ch.side==='Kahraman'?'🌟':ch.side==='Koruyucu'?'🛡️':ch.side==='Gezgin'?'🌍':'🌙'} ${ch.side}</span></div>
+          ${ch.story?`<p style="font-size:13px;color:var(--tx2);line-height:1.65;margin-top:9px">${ch.story}</p>`:''}
+        </div>
+      </div>
+    </div>
+    ${ch.powers?.length?`<div class="det-sec"><div class="det-sec-t">⚡ Güçler</div><div>${ch.powers.map(p=>`<span class="ptag">⚡ ${p}</span>`).join('')}</div></div>`:''}
+    ${ch.weaknesses?.length?`<div class="det-sec"><div class="det-sec-t">💔 Zayıflıklar</div><div>${ch.weaknesses.map(w=>`<span class="wtag">💔 ${w}</span>`).join('')}</div></div>`:''}
+    <div class="det-sec"><div class="det-sec-t">📊 İstatistikler</div>${STAT_DEFS.map(s=>`<div class="sbr"><span class="sbl">${s.label}</span><div class="sbbg"><div class="sbf" style="width:${ch.stats?.[s.id]||50}%;background:${s.c}"></div></div><span style="font-size:11px;font-weight:700;min-width:22px;text-align:right;color:var(--tx)">${ch.stats?.[s.id]||50}</span></div>`).join('')}</div>
+    ${ch.notes?`<div class="det-sec"><div class="det-sec-t">💭 Notlar</div><div class="det-txt">${ch.notes}</div></div>`:''}
+    <div class="brow"><button class="btn-p" onclick="gotoNew(${ch.id})">✏️ Düzenle</button><button class="btn-s" onclick="gotoAll()">← Tüm Karakterler</button><button class="btn-d" onclick="delChar(${ch.id})">🗑️ Sil</button></div>
+  `;
+  sv('vDetail',ch.name,`${ch.rarity} • ${ch.side}`);
+}
+
+function cCard(ch){
+  const rc=RC[ch.rarity]||'ep';const img=snap(ch,90,138);
+  return`<div class="ccard bg-${rc}" onclick="gotoDetail(${ch.id})" style="border-top:3px solid ${RCOL[rc]}"><div class="ccard-vis"><img src="${img}" width="90" height="138" style="border-radius:9px"></div><div class="ccard-name">${ch.name}</div><div class="ccard-type">${ch.type||''}</div><span class="rbadge bg-${rc} r-${rc}">⭐ ${ch.rarity}</span></div>`;
+}
+
+function renderHD(){
+  document.getElementById('sT').textContent=chars.length;document.getElementById('sEf').textContent=chars.filter(c=>c.rarity==='Efsanevi').length;document.getElementById('sTn').textContent=chars.filter(c=>c.rarity==='Tanrısal').length;document.getElementById('sEp').textContent=chars.filter(c=>c.rarity==='Epik').length;
+  const el=document.getElementById('homeGrid');
+  if(!chars.length){el.innerHTML=`<div class="empty" style="grid-column:1/-1"><div class="empty-i">⚔️</div><div class="empty-t">İlk karakterini yarat!</div></div>`;return;}
+  el.innerHTML=[...chars].sort((a,b)=>b.id-a.id).slice(0,8).map(cCard).join('');
+}
+function renderAll(){
+  const q=(document.getElementById('searchQ')?.value||'').toLowerCase(),rf=document.getElementById('filterR')?.value||'';
+  const list=chars.filter(c=>(!q||c.name.toLowerCase().includes(q)||(c.type||'').toLowerCase().includes(q))&&(!rf||c.rarity===rf));
+  document.getElementById('allGrid').innerHTML=list.length?list.map(cCard).join(''):`<div class="empty" style="grid-column:1/-1"><div class="empty-i">🔍</div><div class="empty-t">Bulunamadı</div></div>`;
+}
+function renderSB(){
+  document.getElementById('totalN').textContent=chars.length;
+  document.getElementById('sbList').innerHTML=chars.length?chars.map(c=>`<div class="sb-item" onclick="gotoDetail(${c.id})"><div class="sb-dot dot-${RC[c.rarity]||'ep'}"></div>${c.name}</div>`).join(''):'<div style="text-align:center;padding:1rem;font-size:11px;color:var(--tx3);font-style:italic">Henüz karakter yok</div>';
+}
+
+// BACKUP
+function exportK(){const data={chars,exportDate:new Date().toLocaleDateString('tr-TR'),version:'kd_v6'};const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`karakter_dunyam_${new Date().toISOString().slice(0,10)}.json`;a.click();toast(`✅ ${chars.length} karakter yedeklendi!`);}
+function importK(){const input=document.createElement('input');input.type='file';input.accept='.json';input.onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=ev=>{try{const d=JSON.parse(ev.target.result);if(d.version!=='kd_v6'){toast('❌ Yanlış dosya!');return;}chars=d.chars||[];localStorage.setItem('kd_v6',JSON.stringify(chars));renderSB();renderHD();toast(`✅ ${chars.length} karakter yüklendi!`);}catch{toast('❌ Dosya okunamadı.');}};r.readAsText(f);};input.click();}
+function toast(msg){let t=document.getElementById('toast');if(!t){t=document.createElement('div');t.id='toast';t.style.cssText='position:fixed;bottom:24px;right:24px;background:#100D1E;color:#F0EAFF;padding:12px 20px;border-radius:12px;font-size:13px;box-shadow:0 4px 20px rgba(0,0,0,.5);border:1px solid rgba(139,92,246,.3);z-index:9999;font-family:Nunito,sans-serif;transition:opacity .4s';document.body.appendChild(t);}t.textContent=msg;t.style.opacity='1';clearTimeout(t._t);t._t=setTimeout(()=>t.style.opacity='0',3500);}
+
+// INIT
+buildStats();renderSel();renderSB();renderHD();updRot();
+</script>
+</body>
+</html>
